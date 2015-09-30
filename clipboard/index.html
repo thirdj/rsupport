@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Clipboard.js</title>
+</head>
+<body>
+  <input type="text" id="foo" value="http://www.daum.net" />
+  <button class="btn" data-clipboard-target="#foo">버튼</button>
+
+  <script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+  <script src="http://zenorocha.github.io/clipboard.js/dist/clipboard.min.js"></script>
+  <script>
+  /**
+   * @param  {Clipboard}
+   * @return {[type]}
+   * @refer http://zenorocha.github.io/clipboard.js/
+   */
+    $(function(){
+      var clipboard = new Clipboard('.btn');
+
+      clipboard.on('success', function(e){
+        console.log('e  ', e);
+        console.info('success action  ', e.action);
+        console.info('success text  ', e.text);
+        console.info('success trigger  ', e.trigger);
+        alert('Copied!');
+        e.clearSelection();
+      });
+
+      clipboard.on('error', function(e){
+        console.error('error action  ', e.action);
+        console.error('error text  ', e.text);
+      });
+    });
+  </script>
+</body>
+</html>
