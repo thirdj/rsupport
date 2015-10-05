@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title>가위 바위 보</title>
+<!--link rel="stylesheet" href="assert/stylesheets/reset.css"-->
+<!-- <link rel="stylesheet" href="assert/stylesheets/style.css"> -->
+<!-- <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+
+<!-- for ie7 -->
+<!--link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"-->
+
+<!-- <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+<link rel="stylesheet" href="//s3-us-west-2.amazonaws.com/s.cdpn.io/209282/simplebar.css"> -->
+<style>
+	.scoreboard div {
+	  display: inline-block;
+	}
+</style>
+</head>
+<body>
+	<div class="section">
+		<button id="scissors" data-play="scissors"><i class="fa fa-hand-scissors-o"></i><span>가위</span></button>
+		<button id="rock" data-play="rock"><i class="fa fa-hand-rock-o"></i><span>바위</span></button>
+		<button id="paper" data-play="paper"><i class="fa fa-hand-paper-o"></i><span>보</span></button>
+		<img src="assert/images/you_rock.png" alt="you" id="you" class="you">
+		<img src="assert/images/com_rock.png" alt="computer" id="com" class="com">
+		<div class="result"></div>
+	</div>
+	<div class="aside">
+		<div class="legend">
+			<div class="me">
+				<div>Me</div>
+			</div>
+			<div class="cpu">
+				<div>CPU</div>
+			</div>
+		</div>
+		<div class="scoreboard">
+			<div class="win">
+				<span>0</span>
+				<div>wins</div>
+			</div>
+			<div class="tie">
+				<span>0</span>
+				<div>ties</div>
+			</div>
+			<div class="loss">
+				<span>0</span>
+				<div>losses</div>
+			</div>
+			<div class="move">
+				<span>0</span>
+				<div>total</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="//code.jquery.com/jquery-1.7.2.js"></script>
+	<!--script src="//s3-us-west-2.amazonaws.com/s.cdpn.io/209282/simplebar.min.js"></script-->
+	<script src="assert/javascripts/rocks.js"></script>
+</body>
+</html>
