@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getUserMedia Example</title>
+	<style>
+		body {
+		  padding:50px;
+		}
+		a {
+		  color: #00b7ff;
+		}
+		button { font:18px sans-serif;padding:8px; }
+
+		#video {
+		  margin: 2em auto 0;
+		  width: 500px;
+		  padding: 2em;
+		  background: white;
+		  -webkit-box-shadow: 0 1px 10px #D9D9D9;
+		  -moz-box-shadow: 0 1px 10px #D9D9D9;
+		  -ms-box-shadow: 0 1px 10px #D9D9D9;
+		  -o-box-shadow: 0 1px 10px #D9D9D9;
+		  box-shadow: 0 1px 10px #D9D9D9;
+		}
+	</style>
+</head>
+<body>
+	<h1>getUserMedia Example</h1>
+  <video id="video" autoplay></video><br>
+  <button id="start">Start</button>
+
+  <script src="//cdn.webrtc-experiment.com/DetectRTC.js"></script>
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script>
+  $(function() {
+	  var video = $("#video")
+	  	, startBtn = $("#start");
+
+	  startBtn.click(start);
+	  navigator.getUserMedia = navigator.getUserMedia
+	  											|| navigator.webkitGetUserMedia
+	  											|| navigator.mozGetUserMedia
+	  											|| navigator.oGetUserMedia
+	  											|| navigator.msGetUserMedia;
+
+	  URL = window.URL || window.webkitURL || window.mozURL
+	  	 		|| window.oURL || window.msURL;
+
+	  function start() {
+	    startBtn.attr('disabled', true);
+	    if (navigator.getUserMedia) {
+		    navigator.getUserMedia({
+		      audio: true,
+		      video: true
+		    }, gotStream, function(err) {
+		      console.error('error ==>> ',err);
+		      console.info('err.constraintName ==> ',err.constraintName);
+		      console.info('err.message ==> ',err.message);
+		      console.info('err.name ==> ',err.name);
+		    });
+	    } else {
+	      alert('Sorry, your browser does not support getUserMedia');
+	    }
+	  }
+	  function gotStream(stream) {
+	    video.attr('src', URL.createObjectURL(stream));
+	  }
+	  function detectWebCam() {
+	    console.info('detectWebCam', DetectRTC);
+
+	    // 파폭은 unable to detect 나와서 확인이 현재 안됨.
+	    if (!isMobile && isChrome && DetectRTC.hasWebcam != true) {
+	      alert($.i18n.RM00079); // 서비스를 사용하기 위해서는 웹캠이 필요합니다.
+	      return false;
+	    }
+	    return true;
+	  }
+	});
+  </script>
+</body>
+</html>
