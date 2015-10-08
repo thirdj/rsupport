@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+html {
+  background: -webkit-linear-gradient(#fe8c00 10%, #f83600 90%);
+  /* Chrome 10+, Saf5.1+ */
+  /* FF3.6+ */
+  /* IE10 */
+  /* Opera 11.10+ */
+  background: linear-gradient(#fe8c00 10%, #f83600 90%);
+  /* W3C */
+  min-height: 100%;
+}
+html * {
+  outline: 0;
+}
+
+div.section {
+  height: 120px;
+  width: 600px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #fff;
+  padding: 10px;
+  margin-top: -100px;
+  margin-left: -210px;
+  border-radius: 6px;
+  box-shadow: 0 1px 0 0 rgba(0, 0, 0, 0.4);
+}
+div.section button {
+  background: 0;
+  border: 0;
+  height: 120px;
+  width: 20%;
+  float: left;
+}
+div.section button .fa {
+  font-size: 80px;
+  display: block;
+  margin-bottom: 20px;
+}
+div.section button:hover {
+  /*background-image: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/209282/play.png');
+  background-size: contain;
+  background-repeat: no-repeat;*/
+}
+div.section button.win {
+  color: #15a015;
+}
+div.section button.loss {
+  color: #ff1515;
+}
+div.section button.tie {
+  color: #1515ff;
+}
+div.section .result {
+  position: absolute;
+  text-align: center;
+  font-size: 28px;
+  height: 40px;
+  color: #fff;
+  top: -40px;
+  right: 0;
+  left: 0;
+}
+div.section .result .animated {
+  -webkit-animation-duration: 1.7s;
+  animation-duration: 1.7s;
+}
+
+div.aside {
+  background-color: #e9eaed;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  position: fixed;
+  width: 200px;
+  bottom: 0;
+  left: 0;
+  top: 0;
+}
+div.aside .legend {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.15) 0 1px 10px 0;
+}
+div.aside .legend .me, div.aside .legend .cpu {
+  height: 40px;
+  line-height: 40px;
+  font-size: 14px;
+  width: 50%;
+  float: left;
+  text-align: center;
+  padding: 0.3rem 0;
+}
+div.aside .history-item {
+  height: 40px;
+  font-size: 24px;
+  line-height: 40px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+div.aside .history-item.win {
+  background-color: rgba(0, 150, 0, 0.1);
+}
+div.aside .history-item.loss {
+  background-color: rgba(150, 0, 0, 0.1);
+}
+div.aside .history-item.tie {
+  background-color: rgba(0, 0, 150, 0.1);
+}
+div.aside .history-item .fa {
+  text-align: center;
+  width: 50%;
+}
+div.aside .scoreboard {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 200px;
+  background-color: #fff;
+  height: 50px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(0, 0, 0, 0.15) 0 -1px 10px 0;
+}
+div.aside .scoreboard .win, div.aside .scoreboard .loss, div.aside .scoreboard .tie, div.aside .scoreboard .move {
+  height: 40px;
+  line-height: 20px;
+  font-size: 11px;
+  width: 25%;
+  float: left;
+  text-align: center;
+  padding: 0.3rem 0;
+}
